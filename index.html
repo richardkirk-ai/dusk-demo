@@ -21,11 +21,24 @@
       user-select: none;
       pointer-events: none;
     }
+    /* Invisible clickable overlay for nav items */
+    .nav-hotspot {
+      position: fixed;
+      cursor: pointer;
+      z-index: 10;
+    }
+    .nav-hotspot:hover {
+      background: rgba(71, 69, 70, 0.08);
+      border-radius: 3px;
+    }
   </style>
 </head>
 <body>
 
   <img class="page-img" src="dusk-screenshot.jpg" alt="DUSK Homepage" />
+
+  <!-- Sofas & Chairs nav hotspot — positioned over the nav item in the screenshot -->
+  <a href="sofa.html" class="nav-hotspot" style="left:20.5%; top:10%; width:6.5%; height:3.5%;" title="Sofas &amp; Chairs"></a>
 
   <!-- Ada widget -->
   <script>
