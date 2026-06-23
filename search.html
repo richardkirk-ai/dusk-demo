@@ -716,6 +716,10 @@
       textarea.style.height = Math.min(textarea.scrollHeight, 120) + 'px';
     });
 
+    function escHtml(s) {
+      return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+
     function sendPanelMessage() {
       const text = textarea.value.trim();
       if (!text || !adaReady) return;
