@@ -581,6 +581,7 @@
     function handleSearchResult(body) {
       if (!body || !body.trim()) { showState('none'); return; }
 
+      lastSearchAnswer = body;
       resQuery.textContent = '"' + lastQuery + '"';
       answerBody.innerHTML = '';
       showState('results');
@@ -646,9 +647,10 @@
       panelMsgs.scrollTop = panelMsgs.scrollHeight;
     }
 
+    let lastSearchAnswer = '';
+
     function openPanel(seedQuery) {
       adaPanel.classList.add('open');
-
       if (!panelSeeded) {
         panelSeeded = true;
         const q = seedQuery || lastQuery;
@@ -656,7 +658,11 @@
           panelCtx.textContent = 'Continuing: "' + q + '"';
           panelCtx.style.display = 'block';
           appendMessage('user', q);
-          if (adaReady) adaEmbed.sendMessage(q);
+          if (lastSearchAnswer) {
+            appendMessage('bot', lastSearchAnswer);
+          } else if (adaReady) {
+            adaEmbed.sendMessage(q);
+          }
         } else if (adaReady) {
           setTimeout(() => adaEmbed.sendMessage('hello'), 600);
         }
@@ -678,6 +684,24 @@
     // ── Event wiring ──
     heroBtn.addEventListener('click', () => doSearch(heroInput.value));
     heroInput.addEventListener('keydown', e => { if (e.key === 'Enter') doSearch(heroInput.value); });
+
+    // Debounce-prefetch: silently send to Ada while the user is still typing,
+    // so the answer is in-flight (or already back) by the time they hit Search
+    let prefetchTimer = null;
+    let prefetchedQuery = '';
+    heroInput.addEventListener('input', () => {
+      clearTimeout(prefetchTimer);
+      const q = heroInput.value.trim();
+      if (!q || q.length < 8 || !adaReady) return;
+      prefetchTimer = setTimeout(() => {
+        if (q === prefetchedQuery) return;
+        prefetchedQuery = q;
+        lastQuery = q;
+        lastSearchAnswer = '';
+        seenMsgIds = new Set();
+        adaEmbed.sendMessage(q).catch(() => {});
+      }, 600);
+    });
 
     document.getElementById('escBtn').addEventListener('click', () => openPanel());
     document.getElementById('escBtnNoResults').addEventListener('click', () => openPanel());
