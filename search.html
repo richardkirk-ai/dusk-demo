@@ -551,7 +551,7 @@
 
         if (adaPanel.classList.contains('open')) {
           appendMessage('bot', msg.body || '');
-        } else if (lastQuery) {
+        } else if (lastQuery && !isAdaGreeting(msg.body || '')) {
           handleSearchResult(msg.body || '');
         }
       });
@@ -716,6 +716,10 @@
       textarea.style.height = 'auto';
       textarea.style.height = Math.min(textarea.scrollHeight, 120) + 'px';
     });
+
+    function isAdaGreeting(body) {
+      return /^hi\b|i'm dawn|i can help you track|how can i help you today/i.test(body.trim());
+    }
 
     function escHtml(s) {
       return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
