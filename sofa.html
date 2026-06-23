@@ -490,6 +490,75 @@
       font-size: 10px; color: var(--ink-3); text-align: center;
       margin-top: 8px; letter-spacing: 0.04em;
     }
+
+    /* ── Product carousel ── */
+    .carousel-section {
+      background: var(--bg-2);
+      border-top: 1px solid var(--border);
+      padding: 40px 0 48px;
+    }
+    .carousel-inner {
+      max-width: 1400px; margin: 0 auto; padding: 0 32px;
+    }
+    .carousel-heading {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--ink-2);
+      margin-bottom: 20px;
+    }
+    .carousel-track-wrap { overflow: hidden; position: relative; }
+    .carousel-track-wrap::after {
+      content: ''; position: absolute; right: 0; top: 0; bottom: 0;
+      width: 48px;
+      background: linear-gradient(to right, transparent, var(--bg-2));
+      pointer-events: none;
+    }
+    .carousel-track {
+      display: flex; gap: 16px;
+      overflow-x: auto; scroll-snap-type: x mandatory;
+      scroll-behavior: smooth; padding-bottom: 4px;
+      -webkit-overflow-scrolling: touch; scrollbar-width: none;
+    }
+    .carousel-track::-webkit-scrollbar { display: none; }
+    .carousel-card {
+      flex-shrink: 0; width: 220px;
+      scroll-snap-align: start;
+      background: #fff; border: 1px solid var(--border);
+      border-radius: 4px; overflow: hidden;
+      cursor: pointer; transition: box-shadow 160ms, transform 160ms;
+    }
+    .carousel-card:hover { box-shadow: 0 4px 20px rgba(71,69,70,0.1); transform: translateY(-2px); }
+    .carousel-card-img {
+      width: 100%; aspect-ratio: 4/3; object-fit: cover;
+      display: block; background: var(--bg-3);
+      transition: opacity 200ms;
+    }
+    .carousel-card-body { padding: 12px 14px 16px; }
+    .carousel-card-name {
+      font-size: 12px; font-weight: 600; line-height: 1.35;
+      color: var(--ink); margin-bottom: 4px;
+    }
+    .carousel-card-price { font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 10px; }
+    .carousel-card-price .was { font-size: 11px; font-weight: 400; color: var(--ink-3); text-decoration: line-through; margin-left: 5px; }
+    .carousel-card-btn {
+      width: 100%; padding: 8px 0;
+      border: 1.5px solid var(--ink); border-radius: 3px;
+      background: transparent; color: var(--ink);
+      font-family: inherit; font-size: 10px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      transition: background 140ms, color 140ms;
+    }
+    .carousel-card-btn:hover { background: var(--ink); color: var(--bg); }
+    .carousel-nav {
+      display: flex; justify-content: flex-end; gap: 8px; margin-top: 16px;
+    }
+    .carousel-arrow {
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 1px solid var(--border); background: #fff;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: background 120ms, border-color 120ms;
+    }
+    .carousel-arrow:hover { background: var(--bg-2); border-color: var(--ink-3); }
+    .carousel-arrow svg { width: 14px; height: 14px; color: var(--ink); }
   </style>
 </head>
 <body>
@@ -726,6 +795,81 @@
   </div>
 </main>
 
+<!-- ── Product Carousel ── -->
+<section class="carousel-section">
+  <div class="carousel-inner">
+    <div class="carousel-heading">You might also like</div>
+    <div class="carousel-track-wrap">
+      <div class="carousel-track" id="carouselTrack">
+
+        <div class="carousel-card" onclick="carouselAsk('Kensington 2 Seater Sofa - Ivory')">
+          <img class="carousel-card-img"
+            src="https://cdn.shopify.com/s/files/1/0685/4010/5001/products/hampshire-3-seater-sofa-beige-402094.jpg"
+            alt="Kensington 2 Seater Sofa - Ivory" />
+          <div class="carousel-card-body">
+            <div class="carousel-card-name">Kensington 2 Seater Sofa - Ivory</div>
+            <div class="carousel-card-price">£489 <span class="was">£599</span></div>
+            <button class="carousel-card-btn">View &amp; Ask Advisor</button>
+          </div>
+        </div>
+
+        <div class="carousel-card" onclick="carouselAsk('Chelsea Corner Sofa - Sage')">
+          <img class="carousel-card-img"
+            src="https://cdn.shopify.com/s/files/1/0685/4010/5001/products/hampshire-3-seater-sofa-beige-198932.jpg"
+            alt="Chelsea Corner Sofa - Sage" />
+          <div class="carousel-card-body">
+            <div class="carousel-card-name">Chelsea Corner Sofa - Sage</div>
+            <div class="carousel-card-price">£899</div>
+            <button class="carousel-card-btn">View &amp; Ask Advisor</button>
+          </div>
+        </div>
+
+        <div class="carousel-card" onclick="carouselAsk('Richmond Armchair - Rust')">
+          <img class="carousel-card-img"
+            src="https://cdn.shopify.com/s/files/1/0685/4010/5001/products/hampshire-3-seater-sofa-beige-747503.jpg"
+            alt="Richmond Armchair - Rust" />
+          <div class="carousel-card-body">
+            <div class="carousel-card-name">Richmond Armchair - Rust</div>
+            <div class="carousel-card-price">£329 <span class="was">£389</span></div>
+            <button class="carousel-card-btn">View &amp; Ask Advisor</button>
+          </div>
+        </div>
+
+        <div class="carousel-card" onclick="carouselAsk('Hampshire 3 Seater Sofa - Navy')">
+          <img class="carousel-card-img"
+            src="https://cdn.shopify.com/s/files/1/0685/4010/5001/products/hampshire-3-seater-sofa-beige-595789.jpg"
+            alt="Hampshire 3 Seater Sofa - Navy" />
+          <div class="carousel-card-body">
+            <div class="carousel-card-name">Hampshire 3 Seater Sofa - Navy</div>
+            <div class="carousel-card-price">£629</div>
+            <button class="carousel-card-btn">View &amp; Ask Advisor</button>
+          </div>
+        </div>
+
+        <div class="carousel-card" onclick="carouselAsk('Brompton Sofa Bed - Grey')">
+          <img class="carousel-card-img"
+            src="https://cdn.shopify.com/s/files/1/0685/4010/5001/files/hampshire-3-seater-sofa-beige-610401.jpg"
+            alt="Brompton Sofa Bed - Grey" />
+          <div class="carousel-card-body">
+            <div class="carousel-card-name">Brompton Sofa Bed - Grey</div>
+            <div class="carousel-card-price">£749</div>
+            <button class="carousel-card-btn">View &amp; Ask Advisor</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="carousel-nav">
+      <button class="carousel-arrow" onclick="scrollCarousel(-1)" aria-label="Previous">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="carousel-arrow" onclick="scrollCarousel(1)" aria-label="Next">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
 <!-- ── Ada Chat Side Panel ── -->
 <div class="chat-panel" id="chat-panel">
   <!-- Header -->
@@ -948,7 +1092,6 @@ async function sendMessage() {
   input.value = '';
   autoResize(input);
   document.getElementById('send-btn').disabled = true;
-  document.getElementById('quick-replies').style.display = 'none';
   appendMsg('user', text);
 
   try {
@@ -976,6 +1119,22 @@ function autoResize(el) {
   el.style.height = 'auto';
   el.style.height = Math.min(el.scrollHeight, 120) + 'px';
   document.getElementById('send-btn').disabled = !el.value.trim();
+}
+
+// ── Carousel ───────────────────────────────────────────────
+function scrollCarousel(dir) {
+  const track = document.getElementById('carouselTrack');
+  track.scrollBy({ left: dir * 252, behavior: 'smooth' });
+}
+
+function carouselAsk(productName) {
+  openChat();
+  setTimeout(() => {
+    const input = document.getElementById('chat-input');
+    input.value = 'Tell me about the ' + productName;
+    input.dispatchEvent(new Event('input'));
+    sendMessage();
+  }, adaReady ? 200 : 800);
 }
 
 // Enable send on input
