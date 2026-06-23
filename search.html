@@ -420,7 +420,7 @@
         <div class="answer-label">Home Advisor</div>
         <div class="answer-body" id="answerBody"></div>
       </div>
-      <div class="escalation-strip visible" id="escStrip">
+      <div class="escalation-strip" id="escStrip">
         <div class="esc-text">Want to discuss further? <strong>Ask our Home Advisor</strong> directly.</div>
         <button class="esc-btn" id="escBtn">Start chat</button>
       </div>
@@ -551,7 +551,7 @@
 
         if (adaPanel.classList.contains('open')) {
           appendMessage('bot', msg.body || '');
-        } else {
+        } else if (lastQuery) {
           handleSearchResult(msg.body || '');
         }
       });
@@ -585,6 +585,7 @@
       resQuery.textContent = '"' + lastQuery + '"';
       answerBody.innerHTML = '';
       showState('results');
+      document.getElementById('escStrip').classList.add('visible');
       streamAnswer(renderMarkdown(body));
     }
 
