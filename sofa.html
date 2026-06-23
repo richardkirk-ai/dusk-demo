@@ -1187,7 +1187,7 @@ function appendProductCards() {
       <div class="chat-product-card-body">
         <div class="chat-product-card-name">${escHtml(p.name)}</div>
         <div class="chat-product-card-price">${p.price}${p.was ? ` <span class="was">${p.was}</span>` : ''}</div>
-        <button class="chat-product-card-btn" onclick="carouselAsk('${p.name.replace(/'/g,"\\'")}')">Ask Advisor</button>
+        <button class="chat-product-card-btn">Details</button>
       </div>`;
     track.appendChild(card);
   });
