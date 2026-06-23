@@ -491,6 +491,35 @@
       margin-top: 8px; letter-spacing: 0.04em;
     }
 
+    /* ── Chat product cards ── */
+    .chat-products-wrap { display: flex; flex-direction: column; gap: 6px; max-width: 88%; align-self: flex-start; }
+    .chat-products-label { font-size: 11px; color: var(--ink-3); padding: 0 2px; }
+    .chat-products-track {
+      display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory;
+      scroll-behavior: smooth; padding-bottom: 4px; scrollbar-width: none;
+    }
+    .chat-products-track::-webkit-scrollbar { display: none; }
+    .chat-product-card {
+      flex-shrink: 0; width: 148px; scroll-snap-align: start;
+      background: #fff; border: 1px solid var(--border); border-radius: 6px;
+      overflow: hidden; cursor: pointer;
+      transition: box-shadow 150ms, transform 150ms;
+    }
+    .chat-product-card:hover { box-shadow: 0 3px 12px rgba(71,69,70,0.12); transform: translateY(-1px); }
+    .chat-product-card img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+    .chat-product-card-body { padding: 8px 10px 10px; }
+    .chat-product-card-name { font-size: 11px; font-weight: 600; line-height: 1.3; color: var(--ink); margin-bottom: 3px; }
+    .chat-product-card-price { font-size: 12px; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+    .chat-product-card-price .was { font-size: 10px; font-weight: 400; color: var(--ink-3); text-decoration: line-through; margin-left: 4px; }
+    .chat-product-card-btn {
+      width: 100%; padding: 6px 0; font-family: inherit;
+      font-size: 9px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      border: 1.5px solid var(--ink); border-radius: 3px;
+      background: transparent; color: var(--ink); cursor: pointer;
+      transition: background 130ms, color 130ms;
+    }
+    .chat-product-card-btn:hover { background: var(--ink); color: #fff; }
+
     /* ── Product carousel ── */
     .carousel-section {
       background: var(--bg-2);
@@ -1010,11 +1039,6 @@ waitForAda(() => {
   adaEmbed.subscribeEvent('ada:ready', () => {
     adaReady = true;
     if (panelOpen) updateStatus('Live · secure');
-
-    // Show greeting
-    setTimeout(() => {
-      appendMsg('bot', "Hi! I'm your DUSK Home Advisor. I can help with this sofa — delivery times, fabric details, finance options, or anything else. What would you like to know?");
-    }, 600);
   });
 
   adaEmbed.subscribeEvent('ada:typing:start', () => {
@@ -1094,6 +1118,11 @@ async function sendMessage() {
   document.getElementById('send-btn').disabled = true;
   appendMsg('user', text);
 
+  if (SIMILAR_RX.test(text)) {
+    setTimeout(appendProductCards, 400);
+    return;
+  }
+
   try {
     await adaEmbed.sendMessage(text);
   } catch(e) {
@@ -1119,6 +1148,53 @@ function autoResize(el) {
   el.style.height = 'auto';
   el.style.height = Math.min(el.scrollHeight, 120) + 'px';
   document.getElementById('send-btn').disabled = !el.value.trim();
+}
+
+// ── Similar products data ──────────────────────────────────
+const SIMILAR_PRODUCTS = [
+  { name: 'Kensington 2 Seater Sofa - Ivory', price: '£489', was: '£599',
+    img: 'https://cdn.shopify.com/s/files/1/0685/4010/5001/products/hampshire-3-seater-sofa-beige-402094.jpg' },
+  { name: 'Chelsea Corner Sofa - Sage', price: '£899', was: null,
+    img: 'https://cdn.shopify.com/s/files/1/0685/4010/5001/products/hampshire-3-seater-sofa-beige-198932.jpg' },
+  { name: 'Richmond Armchair - Rust', price: '£329', was: '£389',
+    img: 'https://cdn.shopify.com/s/files/1/0685/4010/5001/products/hampshire-3-seater-sofa-beige-747503.jpg' },
+  { name: 'Hampshire 3 Seater Sofa - Navy', price: '£629', was: null,
+    img: 'https://cdn.shopify.com/s/files/1/0685/4010/5001/products/hampshire-3-seater-sofa-beige-595789.jpg' },
+  { name: 'Brompton Sofa Bed - Grey', price: '£749', was: null,
+    img: 'https://cdn.shopify.com/s/files/1/0685/4010/5001/files/hampshire-3-seater-sofa-beige-610401.jpg' },
+];
+
+const SIMILAR_RX = /similar|other (sofa|option|product)|show me|you might|recommend|alternative|what else/i;
+
+function appendProductCards() {
+  const msgs = document.getElementById('chat-messages');
+  const wrap = document.createElement('div');
+  wrap.className = 'chat-products-wrap';
+
+  const label = document.createElement('div');
+  label.className = 'chat-products-label';
+  label.textContent = 'Here are some similar sofas from DUSK:';
+  wrap.appendChild(label);
+
+  const track = document.createElement('div');
+  track.className = 'chat-products-track';
+
+  SIMILAR_PRODUCTS.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'chat-product-card';
+    card.innerHTML = `
+      <img src="${p.img}" alt="${escHtml(p.name)}" loading="lazy" />
+      <div class="chat-product-card-body">
+        <div class="chat-product-card-name">${escHtml(p.name)}</div>
+        <div class="chat-product-card-price">${p.price}${p.was ? ` <span class="was">${p.was}</span>` : ''}</div>
+        <button class="chat-product-card-btn" onclick="carouselAsk('${p.name.replace(/'/g,"\\'")}')">Ask Advisor</button>
+      </div>`;
+    track.appendChild(card);
+  });
+
+  wrap.appendChild(track);
+  msgs.appendChild(wrap);
+  scrollToBottom();
 }
 
 // ── Carousel ───────────────────────────────────────────────
