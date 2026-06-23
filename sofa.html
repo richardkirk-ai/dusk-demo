@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hampshire 3 Seater Sofa - Beige – DUSK</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* ── Tokens ── */
+    :root {
+      --bg:        #faf6f3;
+      --bg-2:      #f2ede8;
+      --bg-3:      #e8e0d8;
+      --ink:       #474546;
+      --ink-2:     #7a7878;
+      --ink-3:     #aaa8a8;
+      --border:    #e0d8d0;
+      --green:     #2d5a3d;
+      --green-lt:  #e8f0eb;
+      --red:       #c0392b;
+      --gold:      #d4a843;
+      --ease:      cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 14px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { text-decoration: none; color: inherit; }
+    button { cursor: pointer; font-family: inherit; }
+    img { display: block; max-width: 100%; }
+
+    /* ── Promo bar ── */
+    .promo-bar {
+      background: var(--red);
+      color: #fff;
+      text-align: center;
+      padding: 9px 20px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .promo-bar strong { background: rgba(255,255,255,0.2); padding: 2px 8px; border-radius: 3px; margin-left: 8px; }
+
+    /* ── Header ── */
+    .site-header { background: var(--bg); border-bottom: 1px solid var(--border); }
+    .header-inner {
+      max-width: 1400px; margin: 0 auto; padding: 0 32px;
+      display: flex; align-items: center; gap: 24px; height: 72px;
+    }
+    .logo {
+      font-size: 28px; font-weight: 700; letter-spacing: 0.04em;
+      color: var(--ink); flex-shrink: 0;
+    }
+    .header-search {
+      flex: 1; max-width: 420px; margin: 0 auto; position: relative;
+    }
+    .header-search input {
+      width: 100%; padding: 9px 14px 9px 38px;
+      border: 1px solid var(--border); border-radius: 4px;
+      font-family: inherit; font-size: 12px; background: var(--bg-2);
+      color: var(--ink); outline: none;
+    }
+    .header-search input:focus { border-color: var(--ink-3); background: #fff; }
+    .search-icon {
+      position: absolute; left: 11px; top: 50%; transform: translateY(-50%);
+      width: 15px; height: 15px; color: var(--ink-3); pointer-events: none;
+    }
+    .header-actions { display: flex; align-items: center; gap: 18px; margin-left: auto; }
+    .header-actions a {
+      display: flex; flex-direction: column; align-items: center; gap: 2px;
+      font-size: 10px; font-weight: 500; letter-spacing: 0.06em;
+      color: var(--ink-2); transition: color 120ms;
+    }
+    .header-actions a:hover { color: var(--ink); }
+    .header-actions svg { width: 20px; height: 20px; }
+    .bag-wrap { position: relative; }
+    .bag-count {
+      position: absolute; top: -4px; right: -6px;
+      background: var(--ink); color: var(--bg);
+      font-size: 9px; font-weight: 700;
+      width: 15px; height: 15px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    /* ── Main nav ── */
+    .main-nav { border-bottom: 1px solid var(--border); background: var(--bg); }
+    .nav-inner {
+      max-width: 1400px; margin: 0 auto; padding: 0 32px;
+      display: flex; align-items: center; overflow-x: auto; scrollbar-width: none;
+    }
+    .nav-inner::-webkit-scrollbar { display: none; }
+    .nav-inner a {
+      display: block; padding: 12px 15px;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.06em;
+      white-space: nowrap; color: var(--ink-2);
+      border-bottom: 2px solid transparent;
+      transition: color 120ms, border-color 120ms;
+    }
+    .nav-inner a:hover { color: var(--ink); border-bottom-color: var(--ink); }
+    .nav-inner a.sale { color: var(--red); }
+    .nav-inner a.sale:hover { border-bottom-color: var(--red); }
+
+    /* ── Trust bar ── */
+    .trust-bar {
+      background: var(--bg-2); border-bottom: 1px solid var(--border);
+      padding: 9px 0;
+    }
+    .trust-inner {
+      max-width: 1400px; margin: 0 auto; padding: 0 32px;
+      display: flex; align-items: center; justify-content: center; gap: 40px;
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 7px;
+      font-size: 11px; font-weight: 500; color: var(--ink-2);
+    }
+    .trust-item svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+    /* ── Page wrap ── */
+    .page {
+      max-width: 1400px; margin: 0 auto; padding: 24px 32px 80px;
+      transition: padding-right 400ms var(--ease);
+    }
+    .page.panel-open { padding-right: calc(420px + 32px); }
+
+    /* ── Breadcrumb ── */
+    .breadcrumb {
+      display: flex; align-items: center; gap: 6px;
+      font-size: 11px; color: var(--ink-3); margin-bottom: 24px;
+    }
+    .breadcrumb a { transition: color 120ms; }
+    .breadcrumb a:hover { color: var(--ink); }
+    .breadcrumb span { color: var(--ink-2); font-weight: 500; }
+
+    /* ── Product layout ── */
+    .product-layout {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 48px;
+    }
+    @media (max-width: 900px) {
+      .product-layout { grid-template-columns: 1fr; }
+    }
+
+    /* ── Gallery ── */
+    .gallery { display: flex; gap: 12px; }
+    .thumbnails {
+      display: flex; flex-direction: column; gap: 8px; flex-shrink: 0;
+    }
+    .thumbnail {
+      width: 68px; height: 68px; border-radius: 4px; overflow: hidden;
+      border: 2px solid transparent; cursor: pointer;
+      transition: border-color 140ms;
+    }
+    .thumbnail.active { border-color: var(--ink); }
+    .thumbnail:hover:not(.active) { border-color: var(--border); }
+    .thumbnail img { width: 100%; height: 100%; object-fit: cover; }
+    .main-image {
+      flex: 1; border-radius: 4px; overflow: hidden;
+      position: relative; background: var(--bg-2);
+    }
+    .main-image img {
+      width: 100%; aspect-ratio: 4/3; object-fit: cover;
+      transition: opacity 240ms;
+    }
+    .zoom-btn {
+      position: absolute; top: 14px; right: 14px;
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(250,246,243,0.9); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: background 120ms;
+    }
+    .zoom-btn:hover { background: #fff; }
+    .zoom-btn svg { width: 16px; height: 16px; color: var(--ink); }
+
+    /* ── Product details ── */
+    .product-details {}
+    .product-details h1 {
+      font-size: 22px; font-weight: 700; line-height: 1.25; margin-bottom: 10px;
+    }
+    .reviews {
+      display: flex; align-items: center; gap: 8px; margin-bottom: 14px;
+    }
+    .stars { color: var(--gold); font-size: 13px; letter-spacing: 1px; }
+    .review-count { font-size: 12px; color: var(--ink-2); text-decoration: underline; cursor: pointer; }
+    .price-row { display: flex; align-items: baseline; gap: 10px; margin-bottom: 6px; }
+    .price-main { font-size: 26px; font-weight: 700; }
+    .price-finance { font-size: 12px; color: var(--ink-2); margin-bottom: 16px; }
+    .price-finance a { color: var(--ink-2); text-decoration: underline; }
+
+    .stock-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 11px; font-weight: 600; color: var(--green);
+      margin-bottom: 6px;
+    }
+    .stock-badge::before { content: ''; width: 7px; height: 7px; border-radius: 50%; background: var(--green); }
+    .promo-badge {
+      display: inline-block; padding: 4px 10px;
+      background: var(--green); color: #fff;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.06em;
+      border-radius: 3px; margin-bottom: 20px; margin-left: 8px;
+    }
+
+    .section-divider { border: none; height: 1px; background: var(--border); margin: 20px 0; }
+
+    .colour-label { font-size: 12px; font-weight: 600; margin-bottom: 10px; }
+    .colour-label span { font-weight: 400; color: var(--ink-2); }
+    .colour-swatches { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+    .swatch {
+      width: 44px; height: 44px; border-radius: 4px; cursor: pointer;
+      border: 2px solid transparent; overflow: hidden;
+      transition: border-color 140ms; position: relative;
+    }
+    .swatch.active { border-color: var(--ink); }
+    .swatch:hover:not(.active) { border-color: var(--ink-3); }
+    .swatch-inner { width: 100%; height: 100%; }
+
+    .qty-row { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .qty-control {
+      display: flex; align-items: center; border: 1px solid var(--border);
+      border-radius: 4px; overflow: hidden;
+    }
+    .qty-control button {
+      width: 36px; height: 40px; border: none; background: transparent;
+      font-size: 18px; color: var(--ink); display: flex; align-items: center; justify-content: center;
+      transition: background 120ms;
+    }
+    .qty-control button:hover { background: var(--bg-2); }
+    .qty-control span { width: 40px; text-align: center; font-weight: 600; font-size: 14px; }
+
+    .btn-add-bag {
+      flex: 1; padding: 14px 20px;
+      background: var(--ink); color: var(--bg);
+      border: none; border-radius: 4px;
+      font-family: inherit; font-size: 12px; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      transition: background 140ms, transform 120ms;
+    }
+    .btn-add-bag:hover { background: #2a2829; transform: translateY(-1px); }
+
+    .delivery-note {
+      display: flex; align-items: center; gap: 7px;
+      font-size: 11px; color: var(--ink-2); margin-top: 10px; margin-bottom: 20px;
+    }
+    .delivery-note svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+    /* ── Ask Ada button ── */
+    .ada-trigger {
+      width: 100%;
+      padding: 13px 20px;
+      background: #fff;
+      border: 1.5px solid var(--border);
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: border-color 140ms, background 140ms, transform 120ms;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+    .ada-trigger:hover {
+      border-color: var(--ink);
+      background: var(--bg-2);
+      transform: translateY(-1px);
+    }
+    .ada-trigger svg { width: 18px; height: 18px; flex-shrink: 0; }
+    .ada-trigger-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 0 rgba(45,90,61,0.4);
+      animation: pulse 2s infinite;
+      flex-shrink: 0;
+    }
+    @keyframes pulse {
+      0%   { box-shadow: 0 0 0 0 rgba(45,90,61,0.5); }
+      70%  { box-shadow: 0 0 0 6px rgba(45,90,61,0); }
+      100% { box-shadow: 0 0 0 0 rgba(45,90,61,0); }
+    }
+
+    /* ── Product accordion ── */
+    .accordion-item { border-top: 1px solid var(--border); }
+    .accordion-item:last-child { border-bottom: 1px solid var(--border); }
+    .accordion-header {
+      width: 100%; background: transparent; border: none; padding: 14px 0;
+      display: flex; align-items: center; justify-content: space-between;
+      font-family: inherit; font-size: 12px; font-weight: 600;
+      letter-spacing: 0.06em; color: var(--ink); cursor: pointer;
+      text-transform: uppercase;
+    }
+    .accordion-header svg { width: 16px; height: 16px; transition: transform 240ms; flex-shrink: 0; }
+    .accordion-header.open svg { transform: rotate(45deg); }
+    .accordion-body {
+      display: none; padding: 0 0 16px;
+      font-size: 12px; line-height: 1.7; color: var(--ink-2);
+    }
+    .accordion-body.open { display: block; }
+    .accordion-body ul { padding-left: 18px; }
+    .accordion-body li { margin-bottom: 4px; }
+
+    /* ── Chat side panel ── */
+    .chat-panel {
+      position: fixed;
+      top: 0; right: 0;
+      width: 420px; height: 100vh;
+      background: var(--bg);
+      border-left: 1px solid var(--border);
+      display: flex; flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 380ms var(--ease), box-shadow 380ms var(--ease);
+      z-index: 200;
+      box-shadow: none;
+    }
+    .chat-panel.open {
+      transform: translateX(0);
+      box-shadow: -8px 0 40px rgba(71,69,70,0.12);
+    }
+
+    /* Panel header */
+    .chat-header {
+      flex-shrink: 0;
+      padding: 0 20px;
+      height: 64px;
+      display: flex; align-items: center; gap: 12px;
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .chat-logo {
+      font-size: 15px; font-weight: 700; letter-spacing: 0.06em; color: var(--ink);
+    }
+    .chat-title {
+      font-size: 12px; font-weight: 500; color: var(--ink-2);
+      margin-left: 2px;
+    }
+    .chat-status {
+      display: flex; align-items: center; gap: 5px;
+      margin-left: auto;
+      font-size: 10px; font-weight: 600; letter-spacing: 0.06em;
+      color: var(--green);
+    }
+    .chat-status-dot {
+      width: 6px; height: 6px; border-radius: 50%; background: var(--green);
+    }
+    .chat-close {
+      width: 32px; height: 32px; border-radius: 50%;
+      border: 1px solid var(--border); background: transparent;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; margin-left: 10px; transition: background 120ms;
+    }
+    .chat-close:hover { background: var(--bg-2); }
+    .chat-close svg { width: 14px; height: 14px; color: var(--ink); }
+
+    /* Product context strip */
+    .chat-product-strip {
+      flex-shrink: 0;
+      padding: 12px 20px;
+      background: var(--bg-2);
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 12px;
+    }
+    .chat-product-img {
+      width: 48px; height: 48px; border-radius: 4px;
+      overflow: hidden; flex-shrink: 0;
+    }
+    .chat-product-img img { width: 100%; height: 100%; object-fit: cover; }
+    .chat-product-name { font-size: 11px; font-weight: 600; line-height: 1.3; }
+    .chat-product-price { font-size: 11px; color: var(--ink-2); margin-top: 2px; }
+
+    /* Messages */
+    .chat-messages {
+      flex: 1; overflow-y: auto; padding: 20px;
+      display: flex; flex-direction: column; gap: 16px;
+      scroll-behavior: smooth;
+    }
+    .chat-messages::-webkit-scrollbar { width: 4px; }
+    .chat-messages::-webkit-scrollbar-thumb { background: var(--bg-3); border-radius: 4px; }
+
+    .msg { display: flex; flex-direction: column; max-width: 88%; }
+    .msg.bot { align-self: flex-start; }
+    .msg.user { align-self: flex-end; }
+
+    .msg-bubble {
+      padding: 12px 14px;
+      border-radius: 14px;
+      font-size: 13px; line-height: 1.6;
+    }
+    .msg.bot .msg-bubble {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-bottom-left-radius: 4px;
+      color: var(--ink);
+    }
+    .msg.user .msg-bubble {
+      background: var(--ink);
+      color: var(--bg);
+      border-bottom-right-radius: 4px;
+    }
+    .msg-time {
+      font-size: 10px; color: var(--ink-3); margin-top: 4px;
+      padding: 0 2px;
+    }
+    .msg.user .msg-time { text-align: right; }
+
+    /* Markdown in bot bubbles */
+    .msg.bot .msg-bubble strong { font-weight: 700; }
+    .msg.bot .msg-bubble em { font-style: italic; }
+    .msg.bot .msg-bubble a { color: var(--green); text-decoration: underline; }
+    .msg.bot .msg-bubble ul { padding-left: 16px; margin: 6px 0; }
+    .msg.bot .msg-bubble li { margin-bottom: 3px; }
+    .msg.bot .msg-bubble p + p { margin-top: 8px; }
+
+    /* Typing indicator */
+    .typing-bubble {
+      background: #fff; border: 1px solid var(--border);
+      border-radius: 14px; border-bottom-left-radius: 4px;
+      padding: 12px 16px; width: fit-content;
+      display: none; align-items: center; gap: 4px;
+    }
+    .typing-bubble.visible { display: flex; }
+    .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--ink-3); }
+    .dot:nth-child(1) { animation: bounce 1.2s infinite 0s; }
+    .dot:nth-child(2) { animation: bounce 1.2s infinite 0.2s; }
+    .dot:nth-child(3) { animation: bounce 1.2s infinite 0.4s; }
+    @keyframes bounce {
+      0%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-5px); }
+    }
+
+    /* Quick replies */
+    .quick-replies {
+      display: flex; flex-wrap: wrap; gap: 7px; padding: 0 20px 12px;
+    }
+    .quick-reply {
+      padding: 7px 13px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: #fff;
+      font-family: inherit;
+      font-size: 11px; font-weight: 500;
+      color: var(--ink);
+      cursor: pointer;
+      transition: background 120ms, border-color 120ms;
+      white-space: nowrap;
+    }
+    .quick-reply:hover { background: var(--bg-2); border-color: var(--ink-3); }
+
+    /* Input area */
+    .chat-input-area {
+      flex-shrink: 0;
+      padding: 14px 20px;
+      border-top: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .input-row {
+      display: flex; align-items: flex-end; gap: 10px;
+    }
+    .chat-input {
+      flex: 1; resize: none; min-height: 40px; max-height: 120px;
+      padding: 10px 14px;
+      border: 1px solid var(--border); border-radius: 20px;
+      font-family: inherit; font-size: 13px; color: var(--ink);
+      background: #fff; outline: none; line-height: 1.4;
+      transition: border-color 140ms;
+    }
+    .chat-input:focus { border-color: var(--ink-3); }
+    .chat-input::placeholder { color: var(--ink-3); }
+    .send-btn {
+      width: 40px; height: 40px; border-radius: 50%;
+      border: none; background: var(--ink);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; cursor: pointer;
+      transition: background 140ms, transform 120ms;
+    }
+    .send-btn:hover { background: #2a2829; transform: scale(1.05); }
+    .send-btn:disabled { background: var(--ink-3); cursor: not-allowed; transform: none; }
+    .send-btn svg { width: 16px; height: 16px; color: #fff; }
+    .input-hint {
+      font-size: 10px; color: var(--ink-3); text-align: center;
+      margin-top: 8px; letter-spacing: 0.04em;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Promo bar -->
+<div class="promo-bar">
+  Summer of Sport — Up to 20% Off! &nbsp;Use Code:<strong>EXTRA</strong>
+</div>
+
+<!-- Header -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">DUSK</a>
+    <div class="header-search">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" placeholder="Search furniture, bedding &amp; more…" />
+    </div>
+    <div class="header-actions">
+      <a href="#">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <span>Wishlist</span>
+      </a>
+      <a href="#">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        <span>Account</span>
+      </a>
+      <a href="#" class="bag-wrap">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="bag-count">0</span>
+        <span>Bag</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- Main nav -->
+<nav class="main-nav">
+  <div class="nav-inner">
+    <a href="#" class="sale">Sale</a>
+    <a href="#">Beds &amp; Bedroom</a>
+    <a href="#" style="color:var(--ink);border-bottom:2px solid var(--ink);">Sofas &amp; Chairs</a>
+    <a href="#">Bedding</a>
+    <a href="#">Accessories</a>
+    <a href="#">Lighting &amp; Rugs</a>
+    <a href="#">Living Room</a>
+    <a href="#">Dining Room</a>
+    <a href="#">Garden</a>
+    <a href="#">Bathroom</a>
+    <a href="#">Mattresses</a>
+    <a href="#">Inspiration</a>
+    <a href="#">New In</a>
+  </div>
+</nav>
+
+<!-- Trust bar -->
+<div class="trust-bar">
+  <div class="trust-inner">
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+      Finance Available
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      Earn Points on Every Order with MyDUSK
+    </div>
+    <div class="trust-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      100,000+ 5 Star Reviews
+    </div>
+  </div>
+</div>
+
+<!-- Main page -->
+<main class="page" id="main-page">
+  <!-- Breadcrumb -->
+  <nav class="breadcrumb">
+    <a href="index.html">Home</a>
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+    <a href="#">Sofas</a>
+    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+    <span>Hampshire 3 Seater Sofa - Beige</span>
+  </nav>
+
+  <div class="product-layout">
+    <!-- Gallery -->
+    <div class="gallery">
+      <div class="thumbnails" id="thumbnails">
+        <div class="thumbnail active" data-idx="0">
+          <img src="https://cdn.shopify.com/s/files/1/0685/4010/5001/files/hampshire-3-seater-sofa-beige-610401.jpg" alt="Hampshire Sofa - front" />
+        </div>
+        <div class="thumbnail" data-idx="1">
+          <img src="https://cdn.shopify.com/s/files/1/0685/4010/5001/products/hampshire-3-seater-sofa-beige-595789.jpg" alt="Hampshire Sofa - side" />
+        </div>
+        <div class="thumbnail" data-idx="2">
+          <img src="https://cdn.shopify.com/s/files/1/0685/4010/5001/products/hampshire-3-seater-sofa-beige-402094.jpg" alt="Hampshire Sofa - detail" />
+        </div>
+        <div class="thumbnail" data-idx="3">
+          <img src="https://cdn.shopify.com/s/files/1/0685/4010/5001/products/hampshire-3-seater-sofa-beige-198932.jpg" alt="Hampshire Sofa - room" />
+        </div>
+        <div class="thumbnail" data-idx="4">
+          <img src="https://cdn.shopify.com/s/files/1/0685/4010/5001/products/hampshire-3-seater-sofa-beige-747503.jpg" alt="Hampshire Sofa - angle" />
+        </div>
+      </div>
+      <div class="main-image">
+        <img id="main-img" src="https://cdn.shopify.com/s/files/1/0685/4010/5001/files/hampshire-3-seater-sofa-beige-610401.jpg" alt="Hampshire 3 Seater Sofa - Beige" />
+        <button class="zoom-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.35-4.35"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Details -->
+    <div class="product-details">
+      <h1>Hampshire 3 Seater Sofa - Beige</h1>
+
+      <div class="reviews">
+        <span class="stars">★★★★★</span>
+        <span class="review-count">4.89 (2347 reviews)</span>
+      </div>
+
+      <div class="price-row">
+        <span class="price-main">£629</span>
+      </div>
+      <p class="price-finance">or from <strong>£32.01</strong> per month. <a href="#">Learn more</a></p>
+
+      <div>
+        <span class="stock-badge">In Stock</span>
+        <span class="promo-badge">Extra 20% off! Use code: EXTRA</span>
+      </div>
+
+      <hr class="section-divider" />
+
+      <div class="colour-label">Colour: <span>Beige</span></div>
+      <div class="colour-swatches">
+        <div class="swatch active" title="Beige">
+          <div class="swatch-inner" style="background:#d4c8a8;"></div>
+        </div>
+        <div class="swatch" title="Grey">
+          <div class="swatch-inner" style="background:#a8a8a0;"></div>
+        </div>
+        <div class="swatch" title="Ivory">
+          <div class="swatch-inner" style="background:#f0e8d8;"></div>
+        </div>
+        <div class="swatch" title="Sage">
+          <div class="swatch-inner" style="background:#8aa08a;"></div>
+        </div>
+        <div class="swatch" title="Rust">
+          <div class="swatch-inner" style="background:#b85a38;"></div>
+        </div>
+        <div class="swatch" title="Navy">
+          <div class="swatch-inner" style="background:#2a3858;"></div>
+        </div>
+        <div class="swatch" title="Forest">
+          <div class="swatch-inner" style="background:#2d5a3d;"></div>
+        </div>
+      </div>
+
+      <div class="qty-row">
+        <div class="qty-control">
+          <button onclick="adjustQty(-1)">−</button>
+          <span id="qty">1</span>
+          <button onclick="adjustQty(1)">+</button>
+        </div>
+        <button class="btn-add-bag">Add to Bag</button>
+      </div>
+
+      <div class="delivery-note">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        In Stock &nbsp;·&nbsp; Select your chosen delivery day at checkout.
+      </div>
+
+      <!-- Ask Ada button -->
+      <button class="ada-trigger" id="ada-trigger" onclick="openChat()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Ask our Home Advisor about this sofa
+        <span class="ada-trigger-dot"></span>
+      </button>
+
+      <!-- Accordion -->
+      <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          Product Details
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="accordion-body">
+          <ul>
+            <li>Traditional rolled-arm design with textured weave fabric</li>
+            <li>High-resilience seat cushions for lasting comfort</li>
+            <li>Solid hardwood frame with turned wooden legs</li>
+            <li>Scatter cushions included</li>
+            <li>W216 × D90 × H84 cm</li>
+            <li>Seat height: 44 cm</li>
+          </ul>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          Delivery &amp; Returns
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="accordion-body">
+          <ul>
+            <li>Free named-day delivery on orders over £50</li>
+            <li>2-man white-glove delivery service available</li>
+            <li>14-day returns — just contact us to arrange</li>
+            <li>Delivery times: typically 3–10 working days</li>
+          </ul>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          Finance Options
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="accordion-body">
+          <p>Pay over 24 months from £32.01/month at 0% interest with Klarna. Or choose 3 payments of £209.67. 18+, T&amp;C apply, credit subject to status.</p>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          Care Instructions
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </button>
+        <div class="accordion-body">
+          <ul>
+            <li>Spot clean fabric with a damp cloth</li>
+            <li>Do not machine wash cushion covers</li>
+            <li>Wipe wooden legs with a dry cloth</li>
+            <li>Avoid prolonged direct sunlight</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ── Ada Chat Side Panel ── -->
+<div class="chat-panel" id="chat-panel">
+  <!-- Header -->
+  <div class="chat-header">
+    <div>
+      <div class="chat-logo">DUSK</div>
+      <div class="chat-title">Home Advisor</div>
+    </div>
+    <div class="chat-status" id="chat-status">
+      <div class="chat-status-dot"></div>
+      <span>Connecting…</span>
+    </div>
+    <button class="chat-close" onclick="closeChat()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+  </div>
+
+  <!-- Product context strip -->
+  <div class="chat-product-strip">
+    <div class="chat-product-img">
+      <img src="https://cdn.shopify.com/s/files/1/0685/4010/5001/files/hampshire-3-seater-sofa-beige-610401.jpg" alt="Hampshire Sofa" />
+    </div>
+    <div>
+      <div class="chat-product-name">Hampshire 3 Seater Sofa - Beige</div>
+      <div class="chat-product-price">£629 · In Stock</div>
+    </div>
+  </div>
+
+  <!-- Messages -->
+  <div class="chat-messages" id="chat-messages">
+    <!-- Messages appended by JS -->
+  </div>
+
+  <!-- Typing indicator -->
+  <div style="padding: 0 20px 8px;">
+    <div class="typing-bubble" id="typing-bubble">
+      <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+    </div>
+  </div>
+
+  <!-- Quick replies (hidden after first use) -->
+  <div class="quick-replies" id="quick-replies">
+    <button class="quick-reply" onclick="sendQuick(this)">Delivery times?</button>
+    <button class="quick-reply" onclick="sendQuick(this)">What fabric is this?</button>
+    <button class="quick-reply" onclick="sendQuick(this)">Finance options?</button>
+    <button class="quick-reply" onclick="sendQuick(this)">Return policy?</button>
+    <button class="quick-reply" onclick="sendQuick(this)">Does it come in other colours?</button>
+  </div>
+
+  <!-- Input -->
+  <div class="chat-input-area">
+    <div class="input-row">
+      <textarea class="chat-input" id="chat-input" placeholder="Ask anything about this sofa…" rows="1"
+        onkeydown="handleKey(event)" oninput="autoResize(this)"></textarea>
+      <button class="send-btn" id="send-btn" onclick="sendMessage()" disabled>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </button>
+    </div>
+    <div class="input-hint">Powered by Ada · Live agent available</div>
+  </div>
+</div>
+
+<!-- Ada headless embed -->
+<script>
+  window.adaSettings = {
+    handle: 'dusk-ai-agent-demo',
+    headless: true,
+    enableProgrammaticControl: true,
+    metaFields: {
+      page_type: 'product',
+      product_name: 'Hampshire 3 Seater Sofa - Beige',
+      product_price: '629',
+      product_category: 'Sofas'
+    }
+  };
+</script>
+<script src="https://static.ada.support/embed2.js" async></script>
+
+<script>
+// ── State ──────────────────────────────────────────────────
+let adaReady = false;
+let panelOpen = false;
+let seenMsgIds = new Set();
+let qty = 1;
+
+// ── Gallery ────────────────────────────────────────────────
+const images = [
+  'https://cdn.shopify.com/s/files/1/0685/4010/5001/files/hampshire-3-seater-sofa-beige-610401.jpg',
+  'https://cdn.shopify.com/s/files/1/0685/4010/5001/products/hampshire-3-seater-sofa-beige-595789.jpg',
+  'https://cdn.shopify.com/s/files/1/0685/4010/5001/products/hampshire-3-seater-sofa-beige-402094.jpg',
+  'https://cdn.shopify.com/s/files/1/0685/4010/5001/products/hampshire-3-seater-sofa-beige-198932.jpg',
+  'https://cdn.shopify.com/s/files/1/0685/4010/5001/products/hampshire-3-seater-sofa-beige-747503.jpg'
+];
+
+document.getElementById('thumbnails').addEventListener('click', e => {
+  const thumb = e.target.closest('.thumbnail');
+  if (!thumb) return;
+  const idx = +thumb.dataset.idx;
+  document.getElementById('main-img').src = images[idx];
+  document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+  thumb.classList.add('active');
+});
+
+// ── Qty ────────────────────────────────────────────────────
+function adjustQty(delta) {
+  qty = Math.max(1, qty + delta);
+  document.getElementById('qty').textContent = qty;
+}
+
+// ── Accordion ─────────────────────────────────────────────
+function toggleAccordion(btn) {
+  const body = btn.nextElementSibling;
+  const isOpen = body.classList.contains('open');
+  btn.classList.toggle('open', !isOpen);
+  body.classList.toggle('open', !isOpen);
+}
+
+// ── Panel open/close ───────────────────────────────────────
+function openChat() {
+  panelOpen = true;
+  document.getElementById('chat-panel').classList.add('open');
+  document.getElementById('main-page').classList.add('panel-open');
+  document.getElementById('chat-input').focus();
+  if (adaReady) updateStatus('Live · secure');
+}
+
+function closeChat() {
+  panelOpen = false;
+  document.getElementById('chat-panel').classList.remove('open');
+  document.getElementById('main-page').classList.remove('panel-open');
+}
+
+// ── Status ─────────────────────────────────────────────────
+function updateStatus(text) {
+  document.getElementById('chat-status').innerHTML =
+    `<div class="chat-status-dot"></div><span>${text}</span>`;
+}
+
+// ── Ada SDK wiring ─────────────────────────────────────────
+function waitForAda(cb) {
+  if (window.adaEmbed && typeof adaEmbed.subscribeEvent === 'function') { cb(); return; }
+  setTimeout(() => waitForAda(cb), 300);
+}
+
+waitForAda(() => {
+  adaEmbed.subscribeEvent('ada:ready', () => {
+    adaReady = true;
+    if (panelOpen) updateStatus('Live · secure');
+
+    // Show greeting
+    setTimeout(() => {
+      appendMsg('bot', "Hi! I'm your DUSK Home Advisor. I can help with this sofa — delivery times, fabric details, finance options, or anything else. What would you like to know?");
+    }, 600);
+  });
+
+  adaEmbed.subscribeEvent('ada:typing:start', () => {
+    showTyping(true);
+    scrollToBottom();
+  });
+
+  adaEmbed.subscribeEvent('ada:message:received', e => {
+    const msg = e.message || e;
+    if (!msg || msg.role === 'user') return;
+    if (seenMsgIds.has(msg.id)) return;
+    seenMsgIds.add(msg.id);
+    showTyping(false);
+    // Small delay so typing dots disappear smoothly
+    setTimeout(() => {
+      appendMsg('bot', msg.body || msg.message || '');
+    }, 120);
+  });
+});
+
+// ── Message rendering ──────────────────────────────────────
+function appendMsg(role, text) {
+  const msgs = document.getElementById('chat-messages');
+  const div = document.createElement('div');
+  div.className = `msg ${role}`;
+
+  const bubble = document.createElement('div');
+  bubble.className = 'msg-bubble';
+  bubble.innerHTML = role === 'bot' ? renderMarkdown(text) : escHtml(text);
+
+  const time = document.createElement('div');
+  time.className = 'msg-time';
+  time.textContent = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+  div.appendChild(bubble);
+  div.appendChild(time);
+  msgs.appendChild(div);
+  scrollToBottom();
+}
+
+function renderMarkdown(text) {
+  if (!text) return '';
+  return text
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*(.+?)\*/g, '<em>$1</em>')
+    .replace(/`(.+?)`/g, '<code>$1</code>')
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>')
+    .replace(/^[-•]\s(.+)$/gm, '<li>$1</li>')
+    .replace(/(<li>.*<\/li>)/s, '<ul>$1</ul>')
+    .replace(/\n\n+/g, '</p><p>')
+    .replace(/\n/g, '<br>')
+    .replace(/^(.+)$/, '<p>$1</p>');
+}
+
+function escHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function scrollToBottom() {
+  const msgs = document.getElementById('chat-messages');
+  requestAnimationFrame(() => { msgs.scrollTop = msgs.scrollHeight; });
+}
+
+function showTyping(show) {
+  document.getElementById('typing-bubble').classList.toggle('visible', show);
+}
+
+// ── Send message ───────────────────────────────────────────
+async function sendMessage() {
+  const input = document.getElementById('chat-input');
+  const text = input.value.trim();
+  if (!text || !adaReady) return;
+
+  input.value = '';
+  autoResize(input);
+  document.getElementById('send-btn').disabled = true;
+  document.getElementById('quick-replies').style.display = 'none';
+  appendMsg('user', text);
+
+  try {
+    await adaEmbed.sendMessage(text);
+  } catch(e) {
+    showTyping(false);
+    appendMsg('bot', 'Sorry, something went wrong. Please try again.');
+  }
+}
+
+function sendQuick(btn) {
+  document.getElementById('chat-input').value = btn.textContent;
+  document.getElementById('send-btn').disabled = false;
+  sendMessage();
+}
+
+function handleKey(e) {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    sendMessage();
+  }
+}
+
+function autoResize(el) {
+  el.style.height = 'auto';
+  el.style.height = Math.min(el.scrollHeight, 120) + 'px';
+  document.getElementById('send-btn').disabled = !el.value.trim();
+}
+
+// Enable send on input
+document.getElementById('chat-input').addEventListener('input', function() {
+  document.getElementById('send-btn').disabled = !this.value.trim();
+});
+</script>
+
+</body>
+</html>
